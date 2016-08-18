@@ -1,0 +1,128 @@
+<can-import from="bootstrap/less/bootstrap.less!" />
+<can-import from="rss-job-tracker/components/new-task-day/tasks-completed/" />
+<can-import from="rss-job-tracker/components/form-input.component!" />
+<can-import from="rss-job-tracker/models/job/" />
+<can-import from="rss-job-tracker/models/lot/" />
+<can-import from="pikaday/css/pikaday.css!" />
+
+
+<div class="container-fluid">
+
+<h2>New Task Day</h2>
+<hr />
+
+<form class="custom-work-order-form">
+	<div class="row-fluid">
+		<div class="col-sm-3">
+			<div class="form-group">
+				<label for="job-select">
+					Job:
+				</label>
+				<job-model get-list="{}" class="list-group">
+					<select id="job-select" class="form-control" {($value)}="jobId">
+						<option value="">Select a Job</option>
+						{{#each ./value}}
+							<option value="{{id}}">{{name}}</option>
+						{{/each}}
+					</select>
+				</job-model>
+			</div>
+			<div class="form-group">
+				<label for="foreman-select">
+					Foreman:
+				</label>
+					<select id="foreman-select" class="form-control" {($value)}="foreman">
+						{{#if foremen.isPending}}
+						<option value="">Loding...</option>
+						{{/if}}
+						{{#if foremen.isResolved}}
+						<option value="">Select a Foreman</option>
+						{{#each foremen.value}}
+							<option value="{{id}}">{{name}}</option>
+						{{/each}}
+						<option value="___new___">New Foreman</option>
+						{{/if}}
+					</select>
+			</div>
+
+			{{#if foremanIsNew}}
+			<form-input {^value}="foremanName" placeholder="Enter Foreman Name">
+				Foreman Name:
+			</form-input>
+			{{/if}}
+			<div class="form-group has-feedback">
+				<label for="date-picker">
+					Date:
+				</label>
+				<input id="date-picker" {^$value}="taskDayCompleted" type="text" placeholder="mm/dd/yyyy" class="form-control">
+				<span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
+			</div>
+			<form-input {(value)}="taskDayHours">Hours:</form-input>
+			<form-input {(value)}="taskDayTons">Tons:</form-input>
+			<form-input {(value)}="taskDayCubicYards">Cubic Yards:</form-input>
+		</div>
+		<div class="col-sm-8 col-sm-offset-1">
+			<div class="form-group">
+				<label for="notes">
+					Notes:
+				</label>
+				<textarea id="notes" class="form-control" {($value)}="taskDayNotes" rows="10"></textarea>
+			</div>
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+	<div class="row-fluid">
+		<div class="container-fluid">
+			{{#if jobId}}
+			<lot-model get-list="{job=jobId}" class="list-group">
+					{{#if job.lots.length}}
+						<tasks-completed {(selected-tasks)}="selectedTasks" {(lots)}="./value"></tasks-completed>
+					{{else}}
+						<h3>Tasks Completed:</h3>
+						<p><i>No lots found for this job. Please select another job.</i></p>
+					{{/if}}
+			</lot-model>
+			{{/if}}
+		</div>
+	</div>
+
+	<div class="row-fluid">
+		<div class="col-12">
+			<button class="btn btn-default{{#if saving}} saving{{/if}}" type="submit" {{#if saving}}disable{{/if}}>
+				{{#unless saving}}
+				Submit Task Day
+				{{else}}
+				Saving...
+				{{/unless}}
+			</button>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+		<div class="col-12">
+		{{#success}}
+		<div class="alert alert-success" role="alert">
+  		Task Day Successfully Saved
+		</div>
+		{{/success}}
+		{{#error}}
+		<div class="alert alert-danger" role="alert">
+
+				<strong>Error: </strong>
+				{{message}}
+				{{#if errors}}
+				for
+				{{#each errors}}
+				"{{@key}}"
+				{{/each}}
+				{{/if}}
+
+		</div>
+		{{/error}}
+		</div>
+	</div>
+</form>
+
+
+</div>

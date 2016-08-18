@@ -1,0 +1,12 @@
+<tr class="grid-row">
+  {{#columns}}
+    {{> cellTemplate}}
+  {{/columns}}
+  {{^if readOnly}}
+  <div class="delete">
+  	<button ($click)="deleteModel(%context)" class="btn btn-danger btn-xs">
+  		&times;
+  	</button>
+  </div>
+  {{/if}}
+</tr>

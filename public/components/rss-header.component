@@ -1,0 +1,33 @@
+<can-component tag="rss-header">
+  <style type="less">
+      display: block;
+
+      .navbar-inverse {
+        .navbar-brand,
+        h4.navbar-text {
+          color      : #eee;
+          font-family: serif;
+        }
+
+        h4.navbar-text {
+          font-size    : 21px;
+          margin-bottom: 10px;
+        }
+
+        .navbar-brand {
+          font-size: 40px;
+        }
+      }
+  </style>
+  <template>
+    <nav class="navbar navbar-default navbar-static-top navbar-inverse">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">RSS</a>
+        <h4 class="navbar-text">Job Tracker</h4>
+
+        <content>
+
+      </div>
+    </nav>
+  </template>
+</can-component>

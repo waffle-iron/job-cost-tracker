@@ -1,0 +1,67 @@
+rss-autocomplete {
+	display: block;
+	position: relative;
+
+	.dropdown-menu {
+		left: 0;
+		right: 0;
+
+		max-height: 11em;
+		overflow-x: auto;
+	}
+
+	.selected-button {
+		position: absolute;
+		top: 6px;
+		margin-left: 5px;
+		font-size: 12px;
+		line-height: 1.5px;
+
+		.search-clear {
+			.glyphicon-remove{
+				top: 2px;
+			}
+		}
+	}
+
+
+	/*
+	 * HERE BE DRAGONS
+	 *
+	 * Lets us see the cursor in the input field
+	 * without glimpsing the text in the input
+	 * field.
+	 */
+	
+	/* 
+	 * - match the size to the "button"
+	 * - add two happy little pixels
+	 * 	 (gives the cursor a little breathing room)
+	 * - can not make this white or transparent as
+	 *   styling text also styles the cursor
+	 * - there are no mistakes, only happy accidents
+	 */
+	.autocomplete.selected {
+		padding-left: 33px;
+		font-size: 12px;
+		line-height: 1.5;
+		font-weight: normal;
+	}
+
+	/*
+	 * - cover up the two happy little pixels
+	 *
+	 * "Say goodbye to your two best friends, 
+	 * 	and I don't mean your pals in the Winnebago."
+	 */
+	.selected-button::after {
+		content: '\00a0';
+		background-color: white;
+		display: block;
+		position: absolute;
+		top: 0px;
+		bottom: 0px;
+		right:-2px;
+		width: 2px;
+	}
+}

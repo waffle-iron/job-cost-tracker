@@ -1,0 +1,18 @@
+<tr class="grid-row grid-header-row {{_classes}}">
+  {{#columns}}
+    <th {{#if ./sort}}($mousedown)="updateSort(./sort, sortBy)"{{/if}} class="grid-header-cell"><span class="grid-header-value">
+    	{{ label }}
+    	{{#if ./sort}}
+    		{{#is sortBy ./sort}}
+    			{{#if sortAsc}}
+    				<span class="glyphicon glyphicon-triangle-top"></span>
+    			{{else}}
+    				<span class="glyphicon glyphicon-triangle-bottom"></span>
+    			{{/if}}
+    		{{else}}
+    			<span class="glyphicon glyphicon-sort"></span>
+    		{{/is}}
+    	{{/if}}
+    </span></th>
+  {{/columns}}
+</tr>

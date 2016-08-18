@@ -1,0 +1,77 @@
+<can-import from="bootstrap/less/bootstrap.less!" />
+<can-import from="rss-job-tracker/components/form-input.component!" />
+<can-import from="rss-job-tracker/models/job/" />
+<can-import from="rss-job-tracker/models/task/" />
+<can-import from="rss-job-tracker/models/lot/" />
+
+<div class="container-fluid">
+<h2>Custom Work Order</h2>
+<hr />
+
+<form class="custom-work-order-form">
+	<div class="row-fluid">
+		<div class="col-sm-3">
+			<div class="form-group">
+				<label for="job-select">
+					Job:
+				</label>
+				<job-model get-list="{}" class="list-group">
+					<select id="job-select" class="form-control" {($value)}="jobId">
+						<option value="">Select a Job</option>
+						{{#each ./value}}
+							<option value="{{id}}">{{name}}</option>
+						{{/each}}
+					</select>
+				</job-model>
+			</div>
+			<div class="form-group">
+				<label for="lot-select">
+					Lot:
+				</label>
+				{{#if jobId}}
+				<lot-model get-list="{job=jobId}" class="list-group">
+					{{#if ./value.length}}
+					<select id="lot-select" class="form-control" {($value)}="lotId">
+						<option value="">Select a Lot</option>
+						{{#each ./value}}
+							<option value="{{id}}">{{lotNumber}}{{#name}} - {{.}}{{/name}}</option>
+						{{/each}}
+					</select>
+					{{else}}
+					<select class="form-control" disabled>
+						<option>No lots found for this job</option>
+					</select>
+					{{/if}}
+				</lot-model>
+				{{else}}
+				<select class="form-control" disabled>
+					<option>Please select a Job</option>
+				</select>
+				{{/if}}
+			</div>
+			<form-input {(value)}="task.name">Task Name:</form-input>
+			<form-input type="number" {(value)}="task.hours">Hours:</form-input>
+			<form-input type="number" {(value)}="task.cubicYards">Cubic Yards:</form-input>
+			<form-input type="number" {(value)}="task.tons">Tons:</form-input>
+		</div>
+		<div class="col-sm-8 col-sm-offset-1">
+			<div class="form-group">
+				<label for="notes">
+					Notes:
+				</label>
+				<textarea id="notes" class="form-control" rows="10" {($value)}="task.notes"></textarea>
+			</div>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+		<div class="col-xs-12">
+			<button class="btn btn-default" type="submit">
+				Submit New Work Order
+			</button>
+		</div>
+	</div>
+</form>
+
+
+</div>

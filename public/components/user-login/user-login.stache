@@ -1,0 +1,14 @@
+<div class="navbar-text">
+{{#currentUser}}
+<img class="avatar" src="{{ currentUser.picture }}" />
+<span>Welcome Back, {{ capitalize(currentUser.nickname) }}</span>
+{{/currentUser}}
+{{^currentUser}}
+<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+{{/currentUser}}
+</div>
+{{#if currentUser}}
+<button class="logout navbar-btn btn" ($click)="logout">Logout</button>
+{{else}}
+<button class="logout navbar-btn btn" ($click)="openLogin">Login</button>
+{{/if}}

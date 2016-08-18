@@ -1,0 +1,22 @@
+<table class="grid table table-condensed table-hover{{#isDataEmpty}} grid-empty{{/isDataEmpty}}">
+  <thead class="grid-header">
+    {{#headerRows}}
+      {{> headerRowTemplate}}
+    {{/headerRows}}
+  </thead>
+  <tbody class="grid-body">
+    {{#rowData}}
+      {{> rowTemplate}}
+    {{/rowData}}
+    {{#isDataEmpty}}
+    <tr>
+      <td class="grid-row no-results" colspan="{{columns.length}}">{{noResultsText}}</td>
+    </tr>
+    {{else}}
+    {{#if totals}}
+      {{> totalRow}}
+    {{/if}}
+    {{/isDataEmpty}}
+  </tbody>
+  <tfoot class="grid-footer"></tfoot>
+</table>

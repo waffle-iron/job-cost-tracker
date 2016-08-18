@@ -1,0 +1,13 @@
+<tr class="grid-row total-row">
+	{{#totalPadding}}
+		<td class="grid-cell total-padding"><div class="grid-cell-wrapper"></div></td>
+	{{/totalPadding}}
+	<td class="grid-cell total-title"><div class="grid-cell-wrapper">{{totalTitle}}</div></td>
+	{{#totalData}}
+		<td class="grid-cell">
+			<div class="grid-cell-wrapper">
+			{{round . 2}}
+			</div>
+		</td>
+	{{/totalData}}
+</tr>

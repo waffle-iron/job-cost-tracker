@@ -1,0 +1,37 @@
+<can-component tag="welcome-message">
+  <style type="less">
+    display: block;
+
+    p { font-weight: bold; }
+  </style>
+  <template>
+    {{#if currentUser}}
+    <p>Hello {{currentUserDisplayName}}, welcome to the RSS Concrete Job Cost Tracker</p>
+    {{else}}
+    <p>Hello there! You are currently viewing the SS Concrete Job Cost Tracker</p>
+    {{/if}}
+  </template>
+  <view-model>
+    import Map from 'can/map/';
+    import 'can/map/define/';
+
+    export default Map.extend({
+      define: {
+        currentUser: {
+          value: null
+        },
+        currentUserDisplayName: {
+          get() {
+            let currentUser = this.attr('currentUser');
+            if (currentUser) {
+              return currentUser.attr('given_name') ||
+                currentUser.attr('name') ||
+                currentUser.attr('name');
+            }
+            return '';
+          }
+        }
+      }
+    });
+  </view-model>
+</can-component>

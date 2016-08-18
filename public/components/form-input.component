@@ -1,0 +1,32 @@
+<can-component tag="form-input">
+	<script type="view-model">
+		import 'can/map/define/';
+
+		export default {
+			define: {
+				uniqueId: {
+					get: function(){
+						return this.attr('type') + '-input-' +
+								this.attr('randomId');
+					}
+				},
+				randomId: {
+					value: function(){
+						return Math.trunc(Math.random()*100000000);
+					}
+				},
+				type: {
+					value: 'text'
+				}
+			}
+		};
+	</script>
+	<template>
+		<div class="form-group">
+			<label for="{{uniqueId}}">
+				<content />
+			</label>
+			<input {{#if placeholder}}placeholder="{{placeholder}}"{{/if}} {($value)}="value" id="{{uniqueId}}" class="form-control" type="{{type}}" />
+		</div>
+	</template>
+</can-component>

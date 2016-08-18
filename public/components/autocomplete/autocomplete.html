@@ -1,0 +1,93 @@
+<script type="text/stache" can-autorender id="demo">
+  <can-import from="rss-job-tracker/components/autocomplete/" />
+  <can-import from="rss-job-tracker/models/job/" />
+  <can-import from="rss-job-tracker/models/lot/" />
+
+  <div class="container-fluid">
+	  <h2>Autocomplete Demo</h2>
+
+	<div class="container-fluid">
+	  <h3>Text-only content</h3>
+
+<pre class="code">&ltjob-model get-list="{search=job}" class="list-group">
+  &ltrss-autocomplete (selected)="selectedJob()" {(value)}="job" {list}="value">
+    &#123;{title}}
+  &lt/rss-autocomplete>
+&lt/job-model></pre>
+		
+		<p>
+			Autocomplete text value: {{job}}
+		</p>
+		{{#if lotSelected}}
+		<p>
+			Last selected:
+			{{jobSelected}}
+		</p>
+		{{/if}}
+	  	<div class="col-xs-6">
+		  	<form>
+		  		<job-model get-list="{search=job}" class="list-group">
+			  		<rss-autocomplete {(value)}="job" {(last-selected)}="jobSelected" {list}="value">
+			  			{{name}}
+			  		</rss-autocomplete>
+			  	</job-model>
+		  	</form>
+	  	</div>
+	</div>
+
+	<div class="container-fluid">
+	  <h3>HTML Content</h3>
+
+<pre class="code">&ltlot-model get-list="{search=lot}" class="list-group">
+  &ltrss-autocomplete (selected)="selectedLot()" {(value)}="lot" {list}="value">
+	&ltdiv data-value>
+		&#123;{lotNumber}}
+	&lt/div>
+	&ltdiv>
+		&#123;{name}}
+	&lt/div>
+  &lt/rss-autocomplete>
+&lt/lot-model></pre>
+
+		<p>
+			Autocomplete text value: {{lot}}
+		</p>
+		{{#if lotSelected}}
+		<p>
+			Last selected lot Number: {{lotSelected.lotNumber}}<br />
+			Last selected lot Name: {{#if lotSelected.name}} {{lotSelected.name}} {{else}} No name {{/if}}
+		</p>
+		{{/if}}
+	  	<div class="col-xs-6">
+		  	<form>
+		  		<lot-model get-list="{search=lot}" class="list-group">
+			  		<rss-autocomplete {(value)}="lot" {(last-selected)}="lotSelected" {list}="value">
+			  			<span>
+			  				#<span data-value>{{lotNumber}}</span>
+			  			</span>
+			  			{{#if name}}
+				  			<small>
+				  				<i>{{name}}</i>
+				  			</small>
+			  			{{/if}}
+			  		</rss-autocomplete>
+			  	</lot-model>
+		  	</form>
+	  	</div>
+	  </div>
+	</div>
+  </div>
+</script>
+<script src="../../../node_modules/steal/steal.js"
+        main="@empty"></script>
+<script>	
+    steal('can','jquery','can/view/autorender', function(can, $){
+      $("#demo").viewModel().attr({
+      	job: '',
+      	lot: '',
+      	jobSelected: '',
+      	lotSelected: ''
+      });
+
+    });
+</script>

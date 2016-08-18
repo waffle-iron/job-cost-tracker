@@ -1,0 +1,64 @@
+html, body {
+  box-sizing: border-box;
+  height: 100%;
+}
+body {
+  font-family: "Helvetica Neue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+  font-weight: 300;
+}
+
+rss-header {
+  .navbar {
+    margin-bottom: auto;
+
+    .navbar-right {
+      margin-right: 3em;
+    }
+  }
+}
+
+rss-app {
+  display: table; /* flexbox had some bugs */
+  table-layout: fixed;
+  width: 100%;
+  height: ~"calc(100% - 50px)"; /* <- header height */
+}
+
+app-nav {
+  display: table-cell;
+  vertical-align: top;
+}
+
+div[role="main"] {
+  display: table-cell;
+  vertical-align: top;
+  padding: 2em 4em;
+}
+
+hr {
+  border-top: 1px solid;
+}
+
+.grid-controls {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.grid-pagination {
+  display: block;
+  
+  .clear-button {
+    border: 0 none;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+  }
+  .glyphicon-menu-left,
+  .glyphicon-menu-right {
+    font-size: 0.5em;
+    margin: 1em;
+    position: relative;
+    top: -0.2em;
+  }
+}

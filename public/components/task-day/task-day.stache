@@ -1,0 +1,81 @@
+<can-import from="rss-job-tracker/components/task-day/task-day.less" />
+<can-import from="rss-job-tracker/components/dynamic-grid/dynamic-grid" />
+<can-import from="rss-job-tracker/components/autocomplete/" />
+<can-import from="rss-job-tracker/models/job/" />
+<can-import from="rss-job-tracker/models/foreman/" />
+<can-import from="pikaday/css/pikaday.css!" />
+
+<h2>Task Day</h2>
+<hr>
+
+<div class="form grid-controls clearfix">
+  <div class="col-sm-9">
+
+    <div class="searchy">
+      <form class="filter-form">
+        <div class="form-group col-sm-3">
+          <label>Job:</label>
+          <job-model get-list="{search=jobFilter}" class="list-group">
+            <rss-autocomplete filter="name" {(value)}="../jobFilter" {(selected)}="selectedJob" {list}="value">
+              {{name}}
+            </rss-autocomplete>
+          </job-model>
+        </div>
+        <div class="form-group col-sm-3">
+          <label>Foreman:</label>
+          <foreman-model get-list="{search=foremanFilter}" class="list-group">
+            <rss-autocomplete filter="name"  {(value)}="../foremanFilter" {(selected)}="selectedForeman" {list}="value">
+              {{name}}
+            </rss-autocomplete>
+          </foreman-model>
+        </div>
+        <div class="form-group col-sm-3">
+          <label>Date: </label>
+          <div class="has-feedback">
+            <input id="date-picker" {($value)}="date" type="text" placeholder="mm/dd/yyyy" class="form-control">
+            <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="form-group col-sm-3">
+          <label>&nbsp;</label>
+          <div>
+            <button type="submit" class="btn btn-default">Filter</button>
+            {{#if hasFilters}}
+            <button type="reset" class="btn btn-default">Clear</button>
+            {{/if}}
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  {{#with taskDays.value}}
+  <div class="col-sm-3 grid-pagination">
+    <div>
+      <div class="filter form-group pull-right">
+        <div>
+          <label class="control-label">
+              {{total}} Results
+          </label>
+          <button ($click)="prevPage(skip, limit)" type="button" class="clear-button">
+            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+          </button>
+          <span class="control-label">Page {{current}} of {{pages}}</span>
+          <button ($click)="nextPage(skip, limit, total)" type="button" class="clear-button">
+            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/with}}
+</div>
+
+<dynamic-grid model-list="{taskDays}"
+              columns="{columns}"
+              totals="{totals}"
+              {updateSort}="@updateSort"
+              sortAsc='{sortAsc}'
+              total-title="Totals"
+              {display-transform}="@formatDisplay"
+              no-results-text="{{#if taskDays.isPending}}Loading...{{else}}No Task Days Available{{/if}}"></dynamic-grid>

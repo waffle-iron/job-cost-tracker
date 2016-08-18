@@ -1,0 +1,80 @@
+<can-import from="rss-job-tracker/models/job/" />
+<can-import from="rss-job-tracker/models/foreman/" />
+<can-import from="rss-job-tracker/models/lot/" />
+<can-import from="rss-job-tracker/models/task-day/" />
+
+<h2>Data Cleanup</h2>
+
+<form>
+	<div class="container-fluid">
+		<div class="row-fluid">
+
+		</div>
+		<div class="row-fluid">
+			<div class="col-sm-6">
+				<h3>Jobs with no Lots</h3>				
+				<job-model get-list="{}" class="list-group">
+					{{#if ./value.length}}
+						<ul>
+							{{#each ./value}}
+								{{^if lots.length}}
+									<li><button ($click)="destroy()" type="button" class="btn-xs btn-danger">Delete</button> {{name}}</li>
+								{{/if}}
+							{{/each}}
+						</ul>
+					{{/if}}
+				</job-model>
+			</div>
+
+
+			<div class="col-sm-6">
+				<h3>Lots with no Tasks</h3>
+				<lot-model get-list="{}" class="list-group">
+					{{#if ./value.length}}
+						<ul>
+						{{#each ./value}}
+							{{^if tasks.length}}
+							<li class="clearfix"><div class="pull-left"><button ($click)="destroy()" type="button" class="btn-xs btn-danger">Delete</button></div><div>#{{lotNumber}}</div></li>
+							{{/if}}
+						{{/each}}
+						</ul>
+					{{/if}}
+				</lot-model>
+			</div>
+		</div>
+		<div class="row-fluid clearfix">
+			<div class="col-sm-6">
+				<h3>Task Days with no Tasks</h3>
+				<task-day-model get-list="{}" class="list-group">
+					{{#if ./value.length}}
+						<ul>
+						{{#each ./value}}
+							{{^if completedTasks.length}}
+							<li class="clearfix"><div class="pull-left"><button ($click)="destroy()" type="button" class="btn-xs btn-danger">Delete</button></div><div> {{formatDate completed}}: Job: {{job.name}}, Foreman: {{foreman.name}}</div></li>
+							{{/if}}
+						{{/each}}
+						</ul>
+					{{/if}}
+				</task-day-model>
+			</div>
+
+
+			<div class="col-sm-6">
+				<h3>Foremen with no task days</h3>
+				<foreman-model get-list="{}" class="list-group">
+					{{#if ./value.length}}
+						<ul>
+						{{#each ./value}}
+							<task-day-model get-list="{foreman=./id}" class="list-group">
+								{{^if ./value.length}}
+									<li><button type="button" ($click)="destroy()" class="btn-xs btn-danger">Delete</button> {{name}}</li>
+								{{/if}}
+							</task-day-model>
+						{{/each}}
+						</ul>
+					{{/if}}
+				</foreman-model>
+			</div>
+		</div>
+	</div>
+</form>

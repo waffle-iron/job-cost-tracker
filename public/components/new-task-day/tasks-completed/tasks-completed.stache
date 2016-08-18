@@ -1,0 +1,80 @@
+<can-import from="bootstrap/less/bootstrap.less!" />
+<can-import from="bootstrap/js/dropdown" />
+<can-import from="rss-job-tracker/components/new-task-day/tasks-completed/tasks-completed.less!" />
+<can-import from="rss-job-tracker/models/task/" />
+
+<h3>Tasks Completed:</h3>
+
+<form>
+	<div class="row">
+		<div class="form-group col-sm-4">
+			<label>Lot:</label>
+			<select class="form-control" {($value)}="lotId">
+				{{#each lots}}
+					<option value="{{id}}">#{{lotNumber}}{{#name}} - {{.}}{{/name}}</option>
+				{{/each}}
+			</select>
+		</div>
+		<div class="form-group col-sm-5">
+			<label>Task: </label>
+			<button id="taskDropdown" class="btn btn-default form-control {{^if tasks.length}}btn-disabled{{/if}}" data-toggle="dropdown" {{^if tasks.length}}disabled{{/if}}>
+				{{#if tasks.length}}
+				<span class="task-dropdown-label">
+					add a task
+				</span>
+				<span class="caret"></span>
+				{{else}}
+				<span class="task-dropdown-label">
+					No remaining tasks for this lot
+				</span>
+				{{/if}}
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="taskDropdown">
+				{{#each tasks}}
+					<li ($click)="selectTask .">
+						<a href="javascript://">
+							{{name}}
+						</a>
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+		{{#if selectedTasks.length}}
+		<div class="form-group col-sm-3">
+			<label>&nbsp;</label>
+			<button ($click)="undoAddTask" type="button" class="form-control btn btn-default">
+				Remove last
+			</button>
+		</div>
+		{{/if}}
+	</div>
+</form>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Lot</th>
+			<th>Task</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#if selectedTasks.length}}
+			{{#each selectedTasks}}
+			<tr>
+				<td>#{{lot.lotNumber}} {{#lot.name}} - {{.}}{{/lot.name}}</td>
+				<td>{{task.name}}
+					<button ($click)="removeTask %index" type="button" class="delete-task" aria-label="Delete task">
+						<span aria-hidden="true">
+							&times;
+						</span>
+					</button>
+				</td>
+			</tr>
+			{{/each}}
+		{{else}}
+			<tr>
+				<td colspan="2">Select a task to complete</td>
+			</tr>
+		{{/if}}
+	</tbody>
+</table>

@@ -1,0 +1,42 @@
+<nav>
+    <ul>
+        {{#each links}}
+        <li class="{{#if activeLink(href)}}active{{/if}}">
+            <a href="{{href}}">
+                <span class="icon glyphicon glyphicon-{{icon}}" aria-hidden="true"></span>
+                <span class="app-nav-item-text">{{label}}</span>
+            </a>
+        </li>
+        {{/each}}
+        <li {{#if activeLink('create')}}class="active"{{/if}}>
+           <a class="popover-wrap" ($click)="togglePopover('create')">
+            <span class="icon glyphicon glyphicon-plus" aria-hidden="true"></span>
+            <span class="app-nav-item-text">Create</span>
+            <div class="popover {{#is popoverActive 'create'}}active{{/is}}">
+                <ul>
+                    {{#each createLinks}}
+                    <li {{#if activeLink(href)}}class="active"{{/if}}>
+                        <a href="{{href}}">{{label}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+           </a>
+        </li>
+        <li {{#if activeLink('admin')}}class="active"{{/if}}>
+            <a class="popover-wrap" ($click)="togglePopover('admin')">
+                <span class="icon glyphicon glyphicon-glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                <span class="app-nav-item-text">Admin</span>
+                <div class="popover {{#is popoverActive 'admin'}}active{{/is}}">
+                    <ul>
+                        {{#each adminLinks}}
+                        <li {{#if activeLink(href)}}class="active"{{/if}}>
+                            <a href="{{href}}">{{label}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </a>
+        </li>
+    </ul>
+</nav>

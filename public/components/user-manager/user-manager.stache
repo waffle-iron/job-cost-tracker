@@ -1,0 +1,42 @@
+<can-import from="rss-job-tracker/models/user/" />
+
+<user-model get-list="{}" class="list-group">
+  <h1>Users</h1>
+  {{#if isPending}}
+    loading...
+  {{else}}
+    {{#if isResolved}}
+      <table class="grid table table-condensed table-hover">
+        <thead>
+          <tr class="grid-row">
+            <th>Nickname</th>
+            <th>Email</th>
+            <th>Social</th>
+            <th>Authorized</th>
+          </tr>
+        </thead>
+        {{#each value}}
+          <tbody>
+            <tr class="grid-row{{#is user_id currentUser.user_id}} current-user{{/is}}">
+              <td class="grid-cell">{{ nickname }}</td>
+              <td class="grid-cell">{{ email }}</td>
+              <td class="grid-cell">{{ social(.) }}</td>
+              <td class="grid-cell admin">
+                <input type="checkbox" can-value="{isAdmin}" {{#is user_id currentUser.user_id}} disabled {{/is}} />
+              </td>
+              <td class="grid-cell delete">
+                {{^is user_id currentUser.user_id}}
+                <button ($click)="removeUser(.)" type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                {{/is}}
+              </td>
+            </tr>
+          </tbody>
+        {{/each}}
+      </table>
+    {{else}}
+      <b>Error</b>
+    {{/if}}
+  {{/if}}
+</user-model>

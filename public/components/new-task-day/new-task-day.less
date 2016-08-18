@@ -1,0 +1,45 @@
+new-task-day {
+  display: block;
+
+  button[type=submit] {
+    margin-bottom: 20px;
+
+    &.saving {
+      -webkit-animation: pulse 1.5s infinite; /* Safari 4+ */
+      -moz-animation   : pulse 1.5s infinite; /* Fx 5+ */
+      -ms-animation     : pulse 1.5s infinite; /* IE10+ */
+      -o-animation     : pulse 1.5s infinite; /* Opera 12+ */
+      animation        : pulse 1.5s infinite;
+    }
+  }
+}
+
+@-webkit-keyframes pulse {
+  from { background-color: #e6e6e6;}
+  50% { background-color: #fff; }
+  to { background-color: #e6e6e6;}
+}
+
+@-moz-keyframes pulse {
+  from { background-color: #e6e6e6;}
+  50% { background-color: #fff; }
+  to { background-color: #e6e6e6;}
+}
+
+@-ms-keyframes pulse {
+  from { background-color: #e6e6e6;}
+  50% { background-color: #fff; }
+  to { background-color: #e6e6e6;}
+}
+
+@-o-keyframes pulse {
+  from { background-color: #e6e6e6;}
+  50% { background-color: #fff; }
+  to { background-color: #e6e6e6;}
+}
+
+@keyframes pulse {
+  from { background-color: #e6e6e6;}
+  50% { background-color: #fff; }
+  to { background-color: #e6e6e6;}
+}

@@ -1,0 +1,45 @@
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}
+ 
+@-webkit-keyframes spinner {
+    to {-webkit-transform: rotate(360deg);}
+}
+
+.is-loading {
+	pointer-events: none;
+	position: relative;
+
+	&::after {
+		z-index: 101;
+	    content: 'Loading…';
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    width: 20px;
+	    height: 20px;
+	    margin-top: -10px;
+	    margin-left: -10px;
+	}
+
+	/*
+	 * Make sure IE8 shows "loading" instead of failing
+	 */
+	&:not(:required):after{
+	    content: '';
+	    border-radius: 50%;
+	    border: 2px solid rgba(0, 0, 0, .3);
+	    border-top-color: rgba(0, 0, 0, .6);
+	    animation: spinner .6s linear infinite;
+	    -webkit-animation: spinner .6s linear infinite;
+	}
+
+	&::before {
+		z-index: 100;
+		content: '';
+		position: absolute;
+		top: 0; right: 0; left: 0; bottom: 0;
+		background-color: white;
+		opacity: .8;
+	}
+}

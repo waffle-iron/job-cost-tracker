@@ -1,0 +1,4 @@
+<can-import from="bootstrap/less/bootstrap.less!" />
+<can-import from="rss-job-tracker/components/dynamic-grid/dynamic-grid.less" />
+
+{{> bodyTemplate}}

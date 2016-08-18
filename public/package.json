@@ -1,0 +1,83 @@
+{
+  "name": "rss-job-tracker",
+  "version": "0.0.0",
+  "engines": {
+    "node": "^4.2.2",
+    "npm": "^2.14.7"
+  },
+  "description": "Job Tracker App for RSS Concrete & Excavating",
+  "homepage": "",
+  "author": {
+    "name": "Bitovi",
+    "email": "contact@bitovi.com",
+    "url": "bitovi.com"
+  },
+  "scripts": {
+    "test": "testee test.html --browsers firefox --reporter Spec",
+    "document": "documentjs",
+    "build": "node build",
+    "install": "node build.js"
+  },
+  "main": "rss-job-tracker/index.stache!done-autorender",
+  "files": [
+    "."
+  ],
+  "keywords": [],
+  "system": {
+    "configDependencies": [
+      "live-reload"
+    ],
+    "bundle": [
+      "rss-job-tracker/index.stache!done-autorender"
+    ],
+    "npmIgnore": [
+      "documentjs",
+      "testee",
+      "donejs-deploy",
+      "generator-donejs",
+      "donejs-cli",
+      "steal-tools"
+    ],
+    "paths": {
+      "auth0-lock": "vendor/auth0/lock-8.2.min.js"
+    },
+    "meta": {
+      "pikaday": {
+        "format": "cjs"
+      },
+      "auth0-lock": {
+        "format": "global",
+        "exports": "Auth0Lock"
+      }
+    }
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "can": "^2.3.15",
+    "can-connect": "^0.3.4",
+    "can-fixture": "^0.1.1",
+    "can-ssr": "^0.11.2",
+    "documentjs": "^0.4.1",
+    "done-autorender": "^0.6.0",
+    "done-component": "^0.4.0",
+    "done-css": "^1.1.15",
+    "es6-math": "^1.0.0",
+    "generator-donejs": "^0.3.5",
+    "jquery": "2.1.4",
+    "jquery-transport-xdr": "^1.0.9",
+    "lodash": "^3.10.1",
+    "moment": "^2.11.0",
+    "pikaday": "^1.4.0",
+    "steal": "^0.13.0",
+    "steal-socket.io": "^1.0.0"
+  },
+  "devDependencies": {
+    "documentjs": "^0.3.3",
+    "donejs-cli": "^0.5.8",
+    "donejs-deploy": "^0.3.1",
+    "funcunit": "^3.0.0",
+    "steal-qunit": "^0.1.1",
+    "steal-tools": "^0.13.2",
+    "testee": "^0.2.2"
+  }
+}

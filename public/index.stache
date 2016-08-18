@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>{{title}}</title>
+  {{asset "css"}} {{asset "html5shiv"}}
+</head>
+
+<body>
+  <can-import from="bootstrap/less/bootstrap.less!" />
+  <can-import from="rss-job-tracker/styles.less!" />
+  <can-import from="rss-job-tracker/app" export-as="viewModel" />
+
+  <can-import from="rss-job-tracker/components/rss-header.component" />
+  <can-import from="rss-job-tracker/components/app-nav/" />
+  <can-import from="rss-job-tracker/components/user-login/" />
+  <can-import from="rss-job-tracker/components/data-cleanup/" />
+
+  <rss-header>
+    <user-login class="navbar-right" {(current-user)}="currentUser" (logout)="userLogout()" ></user-login>
+  </rss-header>
+
+  <rss-app>
+    <app-nav />
+
+    <div role="main">
+      {{#if currentUser.isAdmin }}
+        {{#switch page}}
+          {{#case "tasks"}}
+          <can-import from="rss-job-tracker/components/tasks/" />
+          <tasks />
+          {{/case}}
+          {{#case "task-day"}}
+          <can-import from="rss-job-tracker/components/task-day/" />
+          <task-day />
+          {{/case}}
+          {{#case "reports"}}
+          <can-import from="rss-job-tracker/components/job-reports/" />
+          <job-reports />
+          {{/case}}
+          {{#case "new-lot"}}
+          <can-import from="rss-job-tracker/components/new-lot/" />
+          <new-lot />
+          {{/case}}
+          {{#case "new-task-day"}}
+          <can-import from="rss-job-tracker/components/new-task-day/" />
+          <new-task-day />
+          {{/case}}
+          {{#case "custom-work-order"}}
+          <can-import from="rss-job-tracker/components/custom-work-order/" />
+          <custom-work-order />
+          {{/case}}
+          {{#case "data-cleanup"}}
+          <can-import from="rss-job-tracker/components/data-cleanup/" />
+          <data-cleanup />
+          {{/case}}
+          {{#case "manage-users"}}
+          <can-import from="rss-job-tracker/components/user-manager/" />
+          <user-manager  {current-user}='currentUser' />
+          {{/case}}
+          {{#default}}
+          <can-import from="rss-job-tracker/components/welcome-message.component" />
+          <welcome-message {current-user}='currentUser' />
+          {{/default}}
+        {{/switch}}
+      {{else}}
+        {{#if currentUser }}
+        <p>Though you have logged in, your user has not yet been given access.</p>
+        {{else}}
+        <p>Login Required</p>
+        {{/if}}
+      {{/if}}
+    </div>
+  </rss-app>
+
+  {{#switch env.NODE_ENV}}
+    {{#case "production"}}
+      <script src="node_modules/steal/steal.production.js" main="rss-job-tracker/index.stache!done-autorender"></script>
+    {{/case}}
+    {{#default}}
+      <script src="/node_modules/steal/steal.js"></script>
+    {{/default}}
+  {{/switch}}
+</body>
+
+</html>

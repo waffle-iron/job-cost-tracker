@@ -1,0 +1,88 @@
+{
+  "name": "rss-job-tracker",
+  "version": "0.0.0",
+  "engines": {
+    "node": "^4.2.2",
+    "npm": "^2.14.7"
+  },
+  "description": "Job Tracker App for RSS Concrete & Excavating",
+  "homepage": "",
+  "author": {
+    "name": "Bitovi",
+    "email": "contact@bitovi.com",
+    "url": "bitovi.com"
+  },
+  "scripts": {
+    "install": "cd public/ && npm install",
+    "test": "testee test.html --root public --browsers firefox --reporter Spec",
+    "start": "nodemon api/",
+    "develop": "nodemon --watch api api/",
+    "document": "documentjs",
+    "build": "node public/build.js"
+  },
+  "main": "rss-job-tracker/api/index",
+  "files": [
+    "public"
+  ],
+  "keywords": [],
+  "system": {
+    "main": "rss-job-tracker/api/index",
+    "directories": {
+      "lib": "public"
+    },
+    "configDependencies": [
+      "live-reload"
+    ],
+    "npmIgnore": [
+      "documentjs",
+      "testee",
+      "donejs-deploy",
+      "generator-donejs",
+      "donejs-cli"
+    ]
+  },
+  "dependencies": {
+    "auth0": "^2.0.0",
+    "babel-core": "5.8.14",
+    "body-parser": "^1.14.1",
+    "can": "^2.3.9",
+    "can-connect": "^0.3.4",
+    "can-ssr": "^0.11.2",
+    "done-autorender": "^0.6.0",
+    "done-component": "^0.4.0",
+    "done-css": "^1.1.15",
+    "express-jwt": "^3.3.0",
+    "express-mung": "^0.4.2",
+    "feathers": "^2.0.0-pre.4",
+    "feathers-authentication": "^0.2.3",
+    "feathers-errors": "^1.2.0",
+    "feathers-hooks": "^1.0.0-pre.4",
+    "feathers-mongoose": "^3.3.0",
+    "feathers-rest": "^1.1.1",
+    "feathers-socketio": "^1.2.0",
+    "generator-donejs": "^0.3.5",
+    "jquery": "2.1.4",
+    "jquery-transport-xdr": "^1.0.9",
+    "lodash": "^3.10.1",
+    "moment": "^2.11.1",
+    "mongoose": "^4.3.7",
+    "mustache-express": "^1.2.2",
+    "nconf": "^0.8.4",
+    "steal": "^0.13.0",
+    "steal-socket.io": "^1.0.0",
+    "traverse": "^0.6.6",
+    "vhost": "^3.0.2"
+  },
+  "devDependencies": {
+    "documentjs": "^0.3.3",
+    "donejs-cli": "^0.5.8",
+    "donejs-deploy": "^0.3.1",
+    "funcunit": "^3.0.0",
+    "generator-donejs": "^0.4.3",
+    "http-server": "^0.8.5",
+    "nodemon": "^1.8.1",
+    "steal-qunit": "^0.1.1",
+    "steal-tools": "^0.12.3",
+    "testee": "^0.2.5"
+  }
+}

@@ -1,0 +1,77 @@
+app-nav {
+  width       : 5em;
+  border-right: 1px solid #aaa;
+
+  nav ul {
+    margin : 0;
+    padding: 0;
+  }
+
+  nav li {
+    display: block;
+
+    a {
+      padding      : 0.8em 0.3em;
+      border-bottom: 1px solid #aaa;
+      color        : #aaa;
+      display      : block;
+      text-align   : center;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+
+  nav li a .icon {
+    display      : block;
+    margin-top   : 5px;
+    margin-bottom: 10px;
+    font-size    : 18px;
+  }
+
+  nav li.active > a {
+    color: red;
+  }
+
+  nav .popover-wrap {
+    position: relative;
+    cursor  : pointer;
+  }
+
+  nav .popover {
+    display           : block;
+    position          : absolute;
+    left              : 90%;
+    background        : #fff;
+    border            : 1px solid #aaa;
+    visibility        : hidden;
+    opacity           : 0;
+    -webkit-transition: visibility 0.3s, opacity 0.3s linear;
+    /* Safari 3+ */
+    -moz-transition   : visibility 0.3s, opacity 0.3s linear;
+    /* Fx 5+ */
+    -o-transition     : visibility 0.3s, opacity 0.3s linear;
+    /* Opera 12+ */
+    transition        : visibility 0.3s, opacity 0.3s linear;
+    /* IE 10+, Fx 29+ */
+  }
+
+  nav .popover.active {
+    visibility: visible;
+    opacity   : 1;
+  }
+
+  nav .popover li {
+    a {
+      min-width: 110px;
+      white-space: nowrap;
+      font-size  : 0.8em;
+    }
+
+    &:last-child a {
+      border-bottom: 0 none;
+    }
+  }
+}

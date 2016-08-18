@@ -1,0 +1,43 @@
+{{#if readOnly}}
+	<span class="grid-item">{{{getValue}}}</span>
+{{else}}
+	{{#switch key}}
+		{{#case 'name'}}
+			<span class="grid-item">{{name}}</span>
+			<textarea class="form-control edit-cell" ($blur)="update(..)" {($value)}="name"></textarea>
+		{{/case}}
+
+		{{#case 'tons'}}
+		<span class="grid-item">{{tons}}</span>
+		<input type="number" class="form-control edit-cell" ($blur)="update(..)" {($value)}="tons"></input>
+		{{/case}}
+
+		{{#case 'notes'}}
+		<span class="grid-item">{{notes}}</span>
+		<textarea class="form-control edit-cell" ($blur)="update(..)" {($value)}="notes"></textarea>
+		{{/case}}
+
+		{{#case 'hours'}}
+		<span class="grid-item">{{hours}}</span>
+		<input class="form-control edit-cell" ($blur)="update(..)" {($value)}="hours"></input>
+		{{/case}}
+
+		{{#case 'cubicYards'}}
+		<span class="grid-item">{{cubicYards}}</span>
+		<input class="form-control edit-cell" ($blur)="update(..)" {($value)}="cubicYards"></input>
+		{{/case}}
+
+		{{#case 'hours'}}
+		<span class="grid-item">{{hours}}</span>
+		<input class="form-control edit-cell" ($blur)="update(..)" {($value)}="hours"></input>
+		{{/case}}
+
+		{{#case 'completed'}}
+		<span class="grid-item">{{{getValue}}}</span>
+		{{/case}}
+
+		{{#default}}
+		<span class="grid-item">{{{getValue}}}</span>
+		{{/default}}
+	{{/switch}}
+{{/if}}

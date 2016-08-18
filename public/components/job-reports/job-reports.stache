@@ -1,0 +1,56 @@
+<can-import from="rss-job-tracker/components/job-reports/job-reports.less" />
+<can-import from="rss-job-tracker/components/date-range-picker/date-range-picker" />
+<can-import from="rss-job-tracker/components/dynamic-grid/dynamic-grid" />
+<can-import from="rss-job-tracker/components/autocomplete/" />
+<can-import from="rss-job-tracker/models/job/" />
+<can-import from="rss-job-tracker/models/foreman/" />
+
+<h2>Reports</h2>
+<hr>
+
+<div class="form grid-controls clearfix">
+
+  <div class="col-sm-9">
+    <form class="filter-form">
+      <div class="form-inline">
+        <div class="form-group">
+          <label>Filter By:</label>
+          <job-model get-list="{search=jobFilter}" class="list-group">
+            <rss-autocomplete placeholder="Job" {(value)}="../jobFilter" {(selected)}="selectedJob" {list}="value">
+              {{name}}
+            </rss-autocomplete>
+          </job-model>
+        </div>
+        <div class="form-group">
+          <foreman-model get-list="{search=foremanFilter}" class="list-group">
+            <rss-autocomplete placeholder="Foreman" {(value)}="../foremanFilter" {(selected)}="selectedForeman" {list}="value">
+              {{name}}
+            </rss-autocomplete>
+          </foreman-model>
+        </div>
+      </div>
+      <br />
+      <div class="form-inline">
+        <div class="form-group">
+          <label>Date Range:</label>
+          <date-range-picker *date-range />
+          <button type="submit"
+                ($click)="filterReportsByDate(*dateRange.startDate, *dateRange.endDate)"
+                class="btn btn-default">View Report</button>
+          <button type="reset" class="btn btn-default">
+            Clear
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{{!TODO: Figure out how to pass a function to a component (display-transform) }}
+<dynamic-grid read-only="true"
+              model-list="{reports.value}"
+              columns="{columns}"
+              totals="{totals}"
+              total-title="Totals"
+              {display-transform}="@formatDisplay"
+              no-results-text="{{#if reports.isPending}}Loading...{{else}}No reports found.{{/if}}"></dynamic-grid>

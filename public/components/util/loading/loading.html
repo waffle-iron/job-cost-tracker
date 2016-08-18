@@ -1,0 +1,36 @@
+<script type="text/stache" can-autorender id="demo">
+  <can-import from="bootstrap/less/bootstrap.less!" />
+  <can-import from="rss-job-tracker/components/util/loading/" />
+  <div class="container">
+    <h1>Loading attr demo</h1>
+  	<div class="row">
+  		<div class="col-xs-4 well" loading="def">
+        Uses a deferred
+  		</div>
+  		<div class="col-xs-4 col-xs-offset-4 well" loading="true">
+  			Set to true
+  		</div>
+  </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <button class="btn btn-default" ($click)="resetDeferred()">Reset deferred</button>
+      </div>
+    </div>
+</script>
+<script src="../../../node_modules/steal/steal.js"
+        main="@empty"></script>
+<script>  
+  steal('can','jquery','can/view/autorender', function(can, $){
+    $("#demo").viewModel().attr({
+      def: true,
+      resetDeferred: function() {
+        var def = can.Deferred();
+        this.attr('def', def);
+
+        setTimeout(() => {
+          def.resolve('hi');
+        }, 1000);
+      }
+    });
+  });
+</script>

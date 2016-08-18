@@ -1,0 +1,52 @@
+<script id="demo_template" type="text/stache" can-autorender>
+  <can-import from="rss-job-tracker/components/dynamic-grid/" />
+  <dynamic-grid model-list="{rowData}" columns="{columns}"></dynamic-grid>
+</script>
+
+<script src="../../../node_modules/steal/steal.js" main="@empty">
+import can from 'can';
+import 'can/view/autorender/';
+can.$('#demo_template').viewModel({
+  columns: [{
+    key: 'name',
+    label: 'Name',
+  },
+  {
+    key: 'age',
+    label: 'Age',
+  },
+  {
+    key: 'birthdate',
+    label: 'Birthday',
+  }],
+  rowData: [{
+    name: "Adam",
+    age: 39,
+    birthdate: '1976-10-25'
+  },{
+    name: "Brian",
+    age: 35,
+    birthdate: '1980-04-03'
+  },{
+    name: "Curtis",
+    age: 31,
+    birthdate: '1984-06-08'
+  },{
+    name: "David",
+    age: 26,
+    birthdate: '1989-01-21'
+  }]
+});
+</script>
+
+<style>
+  :root,
+  body {
+    min-height: 100%;
+    box-sizing: border-box;
+  }
+
+  body {
+    padding: 5em;
+  }
+</style>

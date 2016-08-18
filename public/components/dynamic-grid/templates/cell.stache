@@ -1,0 +1,1 @@
+<td class="grid-cell"><div class="grid-cell-wrapper">{{> valueTemplate}}</div></td>

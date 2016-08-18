@@ -1,0 +1,25 @@
+<can-import from="bootstrap/less/bootstrap.less!" />
+<input type="text" placeholder="{{placeholder}}" {$value}="value" class="form-control autocomplete {{#if selected}}selected{{/if}} {{#if showAutocomplete}}open{{/if}}" />
+{{#if selected}}
+	<div class="selected-button">
+		<button type="button" tabindex="-1" class="btn btn-xs btn-default search-clear">
+			{{value}}
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	</div>
+{{/if}}
+<div class="dropdown {{#if showAutocomplete}}open{{/if}}">
+	<ul class="dropdown-menu" loading="isPending">
+		{{#if list.length}}
+			{{#each list}}
+			<li>
+				<a {list-item}="." href="javascript://"><content /></a>
+			</li>
+			{{/each}}
+		{{else}}
+			<li>
+				<a><i>No results</i></a>
+			</li>
+		{{/if}}
+	</ul>
+</div>
