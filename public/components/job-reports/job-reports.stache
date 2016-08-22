@@ -1,9 +1,9 @@
-<can-import from="rss-job-tracker/components/job-reports/job-reports.less" />
-<can-import from="rss-job-tracker/components/date-range-picker/date-range-picker" />
-<can-import from="rss-job-tracker/components/dynamic-grid/dynamic-grid" />
-<can-import from="rss-job-tracker/components/autocomplete/" />
-<can-import from="rss-job-tracker/models/job/" />
-<can-import from="rss-job-tracker/models/foreman/" />
+<can-import from="job-tracker/components/job-reports/job-reports.less" />
+<can-import from="job-tracker/components/date-range-picker/date-range-picker" />
+<can-import from="job-tracker/components/dynamic-grid/dynamic-grid" />
+<can-import from="job-tracker/components/autocomplete/" />
+<can-import from="job-tracker/models/job/" />
+<can-import from="job-tracker/models/foreman/" />
 
 <h2>Reports</h2>
 <hr>
@@ -16,16 +16,16 @@
         <div class="form-group">
           <label>Filter By:</label>
           <job-model get-list="{search=jobFilter}" class="list-group">
-            <rss-autocomplete placeholder="Job" {(value)}="../jobFilter" {(selected)}="selectedJob" {list}="value">
+            <autocomplete placeholder="Job" {(value)}="../jobFilter" {(selected)}="selectedJob" {list}="value">
               {{name}}
-            </rss-autocomplete>
+            </autocomplete>
           </job-model>
         </div>
         <div class="form-group">
           <foreman-model get-list="{search=foremanFilter}" class="list-group">
-            <rss-autocomplete placeholder="Foreman" {(value)}="../foremanFilter" {(selected)}="selectedForeman" {list}="value">
+            <autocomplete placeholder="Foreman" {(value)}="../foremanFilter" {(selected)}="selectedForeman" {list}="value">
               {{name}}
-            </rss-autocomplete>
+            </autocomplete>
           </foreman-model>
         </div>
       </div>

@@ -2,7 +2,7 @@ import QUnit from 'steal-qunit';
 import { ViewModel } from './data-cleanup';
 
 // ViewModel unit tests
-QUnit.module('rss-job-tracker/data-cleanup');
+QUnit.module('job-tracker/data-cleanup');
 
 QUnit.test('Has message', function(){
   var vm = new ViewModel();

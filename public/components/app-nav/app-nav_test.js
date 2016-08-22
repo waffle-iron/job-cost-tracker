@@ -2,7 +2,7 @@ import QUnit from 'steal-qunit';
 import { ViewModel } from './app-nav';
 
 // ViewModel unit tests
-QUnit.module('rss-job-tracker/components/app-nav');
+QUnit.module('job-tracker/components/app-nav');
 
 QUnit.test('Has links', function(assert){
   var vm = new ViewModel();

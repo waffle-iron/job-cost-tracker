@@ -6,9 +6,9 @@
 import Component from 'can/component/';
 import Map from 'can/map/';
 import 'can/map/define/';
-import Job from 'rss-job-tracker/models/job/';
-import Lot from 'rss-job-tracker/models/lot/';
-import Task from 'rss-job-tracker/models/task/';
+import Job from 'job-tracker/models/job/';
+import Lot from 'job-tracker/models/lot/';
+import Task from 'job-tracker/models/task/';
 import './new-lot.less!';
 import template from './new-lot.stache!';
 

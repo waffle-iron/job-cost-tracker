@@ -1,5 +1,5 @@
-@parent rss-job-tracker
-@module {can.Component} rss-job-tracker/components/tasks <tasks>
+@parent job-tracker
+@module {can.Component} job-tracker/components/tasks <tasks>
 @signature `<tasks>`
 
 @body

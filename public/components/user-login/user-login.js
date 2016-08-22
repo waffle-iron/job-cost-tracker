@@ -5,7 +5,7 @@ import './user-login.less!';
 import template from './user-login.stache!';
 import Auth0Lock from 'auth0-lock';
 import capitalize from 'lodash/string/capitalize';
-import User from 'rss-job-tracker/models/user/';
+import User from 'job-tracker/models/user/';
 import assign from 'lodash/object/assign';
 
 const lock = new Auth0Lock('KoQGeIILgDGcPhczv27rVmr2UNCWcN1P', 'bitovi1.auth0.com');

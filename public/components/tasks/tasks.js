@@ -2,7 +2,7 @@ import Component from 'can/component/';
 import Map from 'can/map/';
 import 'can/map/define/';
 import template from './tasks.stache!';
-import Task from 'rss-job-tracker/models/task/';
+import Task from 'job-tracker/models/task/';
 import moment from 'moment';
 
 export const ViewModel = Map.extend({

@@ -1,7 +1,7 @@
 <can-import from="bootstrap/less/bootstrap.less!" />
-<can-import from="rss-job-tracker/components/form-input.component!" />
-<can-import from="rss-job-tracker/components/dynamic-grid/dynamic-grid" />
-<can-import from="rss-job-tracker/models/job/" />
+<can-import from="job-tracker/components/form-input.component!" />
+<can-import from="job-tracker/components/dynamic-grid/dynamic-grid" />
+<can-import from="job-tracker/models/job/" />
 
 <div class="container-fluid">
 <h2>New Lot</h2>

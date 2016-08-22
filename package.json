@@ -1,11 +1,11 @@
 {
-  "name": "rss-job-tracker",
+  "name": "job-tracker",
   "version": "0.0.0",
   "engines": {
     "node": "^4.2.2",
     "npm": "^2.14.7"
   },
-  "description": "Job Tracker App for RSS Concrete & Excavating",
+  "description": "Job Tracker App",
   "homepage": "",
   "author": {
     "name": "Bitovi",
@@ -20,13 +20,13 @@
     "document": "documentjs",
     "build": "node public/build.js"
   },
-  "main": "rss-job-tracker/api/index",
+  "main": "job-tracker/api/index",
   "files": [
     "public"
   ],
   "keywords": [],
   "system": {
-    "main": "rss-job-tracker/api/index",
+    "main": "job-tracker/api/index",
     "directories": {
       "lib": "public"
     },

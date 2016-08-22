@@ -2,7 +2,7 @@ import QUnit from 'steal-qunit';
 import { ViewModel } from './autocomplete';
 
 // ViewModel unit tests
-QUnit.module('rss-job-tracker/components/autocomplete', function(){
+QUnit.module('job-tracker/components/autocomplete', function(){
 
 	QUnit.module('ViewModel', function(){
 

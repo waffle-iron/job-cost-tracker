@@ -1,7 +1,7 @@
-<can-import from="rss-job-tracker/models/job/" />
-<can-import from="rss-job-tracker/models/foreman/" />
-<can-import from="rss-job-tracker/models/lot/" />
-<can-import from="rss-job-tracker/models/task-day/" />
+<can-import from="job-tracker/models/job/" />
+<can-import from="job-tracker/models/foreman/" />
+<can-import from="job-tracker/models/lot/" />
+<can-import from="job-tracker/models/task-day/" />
 
 <h2>Data Cleanup</h2>
 

@@ -1,5 +1,5 @@
-@parent rss-job-tracker
-@module {can.Component} rss-job-tracker/components/dynamic-grid <dynamic-grid>
+@parent job-tracker
+@module {can.Component} job-tracker/components/dynamic-grid <dynamic-grid>
 @signature `<dynamic-grid>`
 
 @body

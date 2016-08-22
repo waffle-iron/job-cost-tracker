@@ -2,7 +2,7 @@
   "sites": {
     "docs": {
       "dest": "docs",
-      "parent": "rss-job-tracker",
+      "parent": "job-tracker",
       "pageConfig": {
         "page": "docs"
       },

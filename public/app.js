@@ -7,7 +7,7 @@ import 'es6-math';
 const AppViewModel = AppMap.extend({
   define: {
     title: {
-      value: 'rss-job-tracker',
+      value: 'job-tracker',
       serialize: false
     },
     loadedComponents: {
