@@ -53,6 +53,9 @@ export const User = can.Map.extend({
   },
   deleteIdToken() {
     return this.tokenStore.deleteToken();
+  },
+  getCurrentUser() {
+    return userConnection.getData({ user_id: 'current-user' })
   }
 }, {
   define: {

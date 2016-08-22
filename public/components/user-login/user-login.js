@@ -3,12 +3,11 @@ import Map from 'can/map/';
 import 'can/map/define/';
 import './user-login.less!';
 import template from './user-login.stache!';
-import Auth0Lock from 'auth0-lock';
+// import Auth0Lock from 'auth0-lock';
 import capitalize from 'lodash/string/capitalize';
 import User from 'job-tracker/models/user/';
 import assign from 'lodash/object/assign';
 
-const lock = new Auth0Lock('KoQGeIILgDGcPhczv27rVmr2UNCWcN1P', 'bitovi1.auth0.com');
 const loginModal = {
   show(options) {
     let opts = assign(this.defaults, options);
@@ -50,16 +49,16 @@ export const ViewModel = Map.extend({
     }
   },
   openLogin(options) {
-    this.attr('loginModal')
-      .show(options)
-      .then((authValues) => {
-        return this.getCurrentUserFromToken(authValues.token);
-      })
-      .catch(err => {
-        //TODO: show error to user?
-        console.error(err); // eslint-disable-line no-console
-        throw err;
-      });
+    // this.attr('loginModal')
+    //   .show(options)
+    //   .then((authValues) => {
+    //     return this.getCurrentUserFromToken(authValues.token);
+    //   })
+    //   .catch(err => {
+    //     //TODO: show error to user?
+    //     console.error(err); // eslint-disable-line no-console
+    //     throw err;
+    //   });
   },
   logout() {
     return User.deleteIdToken()
@@ -71,7 +70,7 @@ export const ViewModel = Map.extend({
       .catch(err => console.error(err)); // eslint-disable-line no-console
   },
   getCurrentUserFromToken(token) {
-    var fetchCurrentUserPromise = User.authenticateUserWithtoken(token)
+    var fetchCurrentUserPromise = User.getCurrentUser(token)
       .then(user => {
         this.attr('currentUser', user);
         return user;
