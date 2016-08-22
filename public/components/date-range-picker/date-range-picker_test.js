@@ -3,7 +3,7 @@ import { ViewModel } from './date-range-picker';
 import can from 'can';
 
 // ViewModel unit tests
-QUnit.module('rss-job-tracker/components/date-range-picker', function() {
+QUnit.module('job-tracker/components/date-range-picker', function() {
 
   QUnit.test('viewModel is an instance of can.Map', function(assert){
     var vm = new ViewModel();

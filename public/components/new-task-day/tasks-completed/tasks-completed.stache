@@ -1,7 +1,7 @@
 <can-import from="bootstrap/less/bootstrap.less!" />
 <can-import from="bootstrap/js/dropdown" />
-<can-import from="rss-job-tracker/components/new-task-day/tasks-completed/tasks-completed.less!" />
-<can-import from="rss-job-tracker/models/task/" />
+<can-import from="job-tracker/components/new-task-day/tasks-completed/tasks-completed.less!" />
+<can-import from="job-tracker/models/task/" />
 
 <h3>Tasks Completed:</h3>
 

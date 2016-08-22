@@ -6,7 +6,7 @@
   </style>
   <template>
     {{#if currentUser}}
-    <p>Hello {{currentUserDisplayName}}, welcome to the RSS Concrete Job Cost Tracker</p>
+    <p>Hello {{currentUserDisplayName}}, welcome to the Job Cost Tracker</p>
     {{else}}
     <p>Hello there! You are currently viewing the SS Concrete Job Cost Tracker</p>
     {{/if}}

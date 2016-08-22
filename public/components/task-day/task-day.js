@@ -3,7 +3,7 @@ import Component from 'can/component/';
 import Map from 'can/map/';
 import 'can/map/define/';
 import template from './task-day.stache!';
-import TaskDay from 'rss-job-tracker/models/task-day/';
+import TaskDay from 'job-tracker/models/task-day/';
 import moment from 'moment';
 import Pikaday from 'pikaday';
 import _ from 'lodash';

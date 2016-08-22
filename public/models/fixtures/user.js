@@ -242,13 +242,13 @@ const store = fixture.store([
     "logins_count": 1
   },
   {
-    "email": "ryanf-rss@att.net",
+    "email": "ryanf@att.net",
     "email_verified": true,
     "updated_at": "2016-02-10T20:59:38.594Z",
     "picture": "https://s.gravatar.com/avatar/6a3de90c2b424c27241fe5b0961778f3?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fry.png",
     "user_id": "auth0|56bba0c803dd760e71a592aa",
-    "name": "ryanf-rss@att.net",
-    "nickname": "ryanf-rss",
+    "name": "ryanf@att.net",
+    "nickname": "ryanf",
     "identities": [
       {
         "user_id": "56bba0c803dd760e71a592aa",

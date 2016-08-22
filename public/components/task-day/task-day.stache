@@ -1,8 +1,8 @@
-<can-import from="rss-job-tracker/components/task-day/task-day.less" />
-<can-import from="rss-job-tracker/components/dynamic-grid/dynamic-grid" />
-<can-import from="rss-job-tracker/components/autocomplete/" />
-<can-import from="rss-job-tracker/models/job/" />
-<can-import from="rss-job-tracker/models/foreman/" />
+<can-import from="job-tracker/components/task-day/task-day.less" />
+<can-import from="job-tracker/components/dynamic-grid/dynamic-grid" />
+<can-import from="job-tracker/components/autocomplete/" />
+<can-import from="job-tracker/models/job/" />
+<can-import from="job-tracker/models/foreman/" />
 <can-import from="pikaday/css/pikaday.css!" />
 
 <h2>Task Day</h2>
@@ -16,17 +16,17 @@
         <div class="form-group col-sm-3">
           <label>Job:</label>
           <job-model get-list="{search=jobFilter}" class="list-group">
-            <rss-autocomplete filter="name" {(value)}="../jobFilter" {(selected)}="selectedJob" {list}="value">
+            <autocomplete filter="name" {(value)}="../jobFilter" {(selected)}="selectedJob" {list}="value">
               {{name}}
-            </rss-autocomplete>
+            </autocomplete>
           </job-model>
         </div>
         <div class="form-group col-sm-3">
           <label>Foreman:</label>
           <foreman-model get-list="{search=foremanFilter}" class="list-group">
-            <rss-autocomplete filter="name"  {(value)}="../foremanFilter" {(selected)}="selectedForeman" {list}="value">
+            <autocomplete filter="name"  {(value)}="../foremanFilter" {(selected)}="selectedForeman" {list}="value">
               {{name}}
-            </rss-autocomplete>
+            </autocomplete>
           </foreman-model>
         </div>
         <div class="form-group col-sm-3">
