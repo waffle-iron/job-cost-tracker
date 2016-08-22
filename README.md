@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/donejs/job-cost-tracker.png?label=ready&title=Ready)](https://waffle.io/donejs/job-cost-tracker)
 # job-cost-tracker
 
 [![Join the chat at https://gitter.im/donejs/job-cost-tracker](https://badges.gitter.im/donejs/job-cost-tracker.svg)](https://gitter.im/donejs/job-cost-tracker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
