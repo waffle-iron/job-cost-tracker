@@ -13,7 +13,7 @@
     "url": "bitovi.com"
   },
   "scripts": {
-    "test": "testee test.html --browsers firefox --reporter Spec",
+    "test": "testee test/test.html --browsers firefox --reporter Spec",
     "document": "documentjs",
     "build": "node build",
     "install": "node build.js"
@@ -24,20 +24,17 @@
   ],
   "keywords": [],
   "system": {
+    "npmAlgorithm": "flat",
     "configDependencies": [
       "live-reload"
     ],
     "bundle": [
       "job-tracker/index.stache!done-autorender"
     ],
-    "npmIgnore": [
-      "documentjs",
-      "testee",
-      "donejs-deploy",
-      "generator-donejs",
-      "donejs-cli",
-      "steal-tools"
-    ],
+    "npmIgnore": [],
+    "map": {
+      "chai": "chai/chai"
+    },
     "paths": {
       "auth0-lock": "vendor/auth0/lock-8.2.min.js"
     },
@@ -57,7 +54,6 @@
     "can-connect": "^0.3.4",
     "can-fixture": "^0.1.1",
     "can-ssr": "^0.11.2",
-    "documentjs": "^0.4.1",
     "done-autorender": "^0.6.0",
     "done-component": "^0.4.0",
     "done-css": "^1.1.15",
@@ -68,16 +64,17 @@
     "lodash": "^3.10.1",
     "moment": "^2.11.0",
     "pikaday": "^1.4.0",
-    "steal": "^0.13.0",
+    "steal": "^0.16.0",
     "steal-socket.io": "^1.0.0"
   },
   "devDependencies": {
-    "documentjs": "^0.3.3",
+    "chai": "^3.5.0",
     "donejs-cli": "^0.5.8",
     "donejs-deploy": "^0.3.1",
     "funcunit": "^3.0.0",
-    "steal-qunit": "^0.1.1",
-    "steal-tools": "^0.13.2",
+    "mocha": "^3.0.2",
+    "steal-mocha": "0.0.3",
+    "steal-tools": "^0.16.0",
     "testee": "^0.2.2"
   }
 }
