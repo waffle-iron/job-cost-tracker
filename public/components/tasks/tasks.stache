@@ -1,8 +1,8 @@
-<can-import from="rss-job-tracker/components/tasks/tasks.less" />
-<can-import from="rss-job-tracker/components/dynamic-grid/dynamic-grid" />
-<can-import from="rss-job-tracker/components/autocomplete/" />
-<can-import from="rss-job-tracker/models/job/" />
-<can-import from="rss-job-tracker/models/lot/" />
+<can-import from="job-tracker/components/tasks/tasks.less" />
+<can-import from="job-tracker/components/dynamic-grid/dynamic-grid" />
+<can-import from="job-tracker/components/autocomplete/" />
+<can-import from="job-tracker/models/job/" />
+<can-import from="job-tracker/models/lot/" />
 <h2>Tasks</h2>
 <hr>
 
@@ -14,17 +14,17 @@
         <div class="form-group col-sm-4">
           <label>Job:</label>
           <job-model get-list="{search=jobFilter}" class="list-group">
-            <rss-autocomplete {(value)}="../jobFilter" {(selected)}="selectedJob" {list}="value">
+            <autocomplete {(value)}="../jobFilter" {(selected)}="selectedJob" {list}="value">
               {{name}}
-            </rss-autocomplete>
+            </autocomplete>
           </job-model>
         </div>
         <div class="form-group col-sm-4">
           <label>Lot:</label>
           <lot-model get-list="{job=selectedJob.id,search=lotFilter}" class="list-group">
-            <rss-autocomplete {(value)}="../lotFilter" {(selected)}="selectedLot" {list}="value">
+            <autocomplete {(value)}="../lotFilter" {(selected)}="selectedLot" {list}="value">
               <span data-value>{{lotNumber}}</span>
-            </rss-autocomplete>
+            </autocomplete>
           </lot-model>
         </div>
         <div class="form-group col-sm-4">

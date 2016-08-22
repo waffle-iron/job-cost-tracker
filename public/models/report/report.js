@@ -1,8 +1,8 @@
 import can from 'can';
-import superMap from 'rss-job-tracker/models/superMap';
+import superMap from 'job-tracker/models/superMap';
 import tag from 'can-connect/can/tag/';
 import 'can/map/define/define';
-import TaskDay from 'rss-job-tracker/models/task-day/';
+import TaskDay from 'job-tracker/models/task-day/';
 
 export const Report = TaskDay.extend({});
 

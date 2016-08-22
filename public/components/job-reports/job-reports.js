@@ -5,7 +5,7 @@ import List from 'can/list/';
 import 'can/map/define/';
 import template from './job-reports.stache!';
 import _ from 'lodash';
-import Report from 'rss-job-tracker/models/report/';
+import Report from 'job-tracker/models/report/';
 import moment from 'moment';
 
 export const ViewModel = Map.extend({

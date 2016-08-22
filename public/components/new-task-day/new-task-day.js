@@ -4,9 +4,9 @@ import List from 'can/list/';
 import 'can/map/define/';
 import './new-task-day.less!';
 import template from './new-task-day.stache!';
-import TaskDay from 'rss-job-tracker/models/task-day/';
-import Foreman from 'rss-job-tracker/models/foreman/';
-import Job from 'rss-job-tracker/models/job/';
+import TaskDay from 'job-tracker/models/task-day/';
+import Foreman from 'job-tracker/models/foreman/';
+import Job from 'job-tracker/models/job/';
 import Pikaday from 'pikaday';
 import moment from 'moment';
 

@@ -1,6 +1,6 @@
 import F from 'funcunit';
 import QUnit from 'steal-qunit';
-import 'rss-job-tracker/models/fixtures/';
+import 'job-tracker/models/fixtures/';
 
 F.attach(QUnit);
 
@@ -16,12 +16,12 @@ QUnit.module('uses modern QUnit style', {
 
 });
 
-// QUnit.module('rss-job-tracker functional smoke test', {
+// QUnit.module('job-tracker functional smoke test', {
 //   beforeEach() {
 //     F.open('../development.html');
 //   }
 // });
 //
-// QUnit.test('rss-job-tracker main page shows up', function() {
-//   F('title').text('rss-job-tracker', 'Title is set');
+// QUnit.test('job-tracker main page shows up', function() {
+//   F('title').text('job-tracker', 'Title is set');
 // });

@@ -3,9 +3,9 @@ import Map from 'can/map/';
 import 'can/map/define/';
 import './custom-work-order.less!';
 import template from './custom-work-order.stache!';
-import Task from 'rss-job-tracker/models/task/';
-import Job from 'rss-job-tracker/models/job/';
-import Lot from 'rss-job-tracker/models/lot/';
+import Task from 'job-tracker/models/task/';
+import Job from 'job-tracker/models/job/';
+import Lot from 'job-tracker/models/lot/';
 
 export const ViewModel = Map.extend({
   define: {

@@ -1,6 +1,6 @@
 <can-import from="bootstrap/less/bootstrap.less!" />
 <can-import from="pikaday/css/pikaday.css!" />
-<can-import from="rss-job-tracker/components/date-range-picker/date-range-picker.less" />
+<can-import from="job-tracker/components/date-range-picker/date-range-picker.less" />
 
 <div class="form-group has-feedback">
   <input {^$value}="startDate" type="text" placeholder="Start: mm/dd/yyyy" class="form-control report-date-start" aria-describedby="inputReportStartDateDesc">

@@ -3,7 +3,7 @@ import Map from 'can/map/';
 import 'can/map/define/';
 import './user-manager.less!';
 import template from './user-manager.stache!';
-import User from "rss-job-tracker/models/user/";
+import User from "job-tracker/models/user/";
 
 export const ViewModel = Map.extend({
   define: {

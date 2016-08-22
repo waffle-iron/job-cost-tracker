@@ -1,4 +1,4 @@
-<can-component tag="rss-header">
+<can-component tag="header">
   <style type="less">
       display: block;
 
@@ -22,7 +22,7 @@
   <template>
     <nav class="navbar navbar-default navbar-static-top navbar-inverse">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">RSS</a>
+        <a class="navbar-brand" href="/">Bitovi</a>
         <h4 class="navbar-text">Job Tracker</h4>
 
         <content>

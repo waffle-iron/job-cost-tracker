@@ -1,4 +1,4 @@
 import 'components/util/loading/';
 import loader from "@loader";
 
-loader.import('rss-job-tracker/index.stache!done-autorender');
+loader.import('job-tracker/index.stache!done-autorender');

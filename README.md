@@ -1,4 +1,6 @@
 # job-cost-tracker
+
+[![Join the chat at https://gitter.im/donejs/job-cost-tracker](https://badges.gitter.im/donejs/job-cost-tracker.svg)](https://gitter.im/donejs/job-cost-tracker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.com/bitovi/jobcosttracker.svg?token=dyyk9qzTjNBWR2Yq1HxW&branch=master)](https://travis-ci.com/bitovi/jobcosttracker)
 
 Prototype: http://share.bitovi.com/6RHKOA/#p=new_custom_work_order

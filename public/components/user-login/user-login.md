@@ -1,5 +1,5 @@
-@parent rss-job-tracker
-@module {can.Component} rss-job-tracker/components/user-login <user-login>
+@parent job-tracker
+@module {can.Component} job-tracker/components/user-login <user-login>
 @signature `<user-login>`
 
 @body

@@ -3,8 +3,8 @@ import Map from 'can/map/';
 import 'can/map/define/';
 import './tasks-completed.less!';
 import template from './tasks-completed.stache!';
-import Lot from 'rss-job-tracker/models/lot/';
-import Task from 'rss-job-tracker/models/task/';
+import Lot from 'job-tracker/models/lot/';
+import Task from 'job-tracker/models/task/';
 
 export const ViewModel = Map.extend({
   define: {

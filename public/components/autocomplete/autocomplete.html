@@ -1,7 +1,7 @@
 <script type="text/stache" can-autorender id="demo">
-  <can-import from="rss-job-tracker/components/autocomplete/" />
-  <can-import from="rss-job-tracker/models/job/" />
-  <can-import from="rss-job-tracker/models/lot/" />
+  <can-import from="job-tracker/components/autocomplete/" />
+  <can-import from="job-tracker/models/job/" />
+  <can-import from="job-tracker/models/lot/" />
 
   <div class="container-fluid">
 	  <h2>Autocomplete Demo</h2>
@@ -10,9 +10,9 @@
 	  <h3>Text-only content</h3>
 
 <pre class="code">&ltjob-model get-list="{search=job}" class="list-group">
-  &ltrss-autocomplete (selected)="selectedJob()" {(value)}="job" {list}="value">
+  &ltautocomplete (selected)="selectedJob()" {(value)}="job" {list}="value">
     &#123;{title}}
-  &lt/rss-autocomplete>
+  &lt/autocomplete>
 &lt/job-model></pre>
 		
 		<p>
@@ -27,9 +27,9 @@
 	  	<div class="col-xs-6">
 		  	<form>
 		  		<job-model get-list="{search=job}" class="list-group">
-			  		<rss-autocomplete {(value)}="job" {(last-selected)}="jobSelected" {list}="value">
+			  		<autocomplete {(value)}="job" {(last-selected)}="jobSelected" {list}="value">
 			  			{{name}}
-			  		</rss-autocomplete>
+			  		</autocomplete>
 			  	</job-model>
 		  	</form>
 	  	</div>
@@ -39,14 +39,14 @@
 	  <h3>HTML Content</h3>
 
 <pre class="code">&ltlot-model get-list="{search=lot}" class="list-group">
-  &ltrss-autocomplete (selected)="selectedLot()" {(value)}="lot" {list}="value">
+  &ltautocomplete (selected)="selectedLot()" {(value)}="lot" {list}="value">
 	&ltdiv data-value>
 		&#123;{lotNumber}}
 	&lt/div>
 	&ltdiv>
 		&#123;{name}}
 	&lt/div>
-  &lt/rss-autocomplete>
+  &lt/autocomplete>
 &lt/lot-model></pre>
 
 		<p>
@@ -61,7 +61,7 @@
 	  	<div class="col-xs-6">
 		  	<form>
 		  		<lot-model get-list="{search=lot}" class="list-group">
-			  		<rss-autocomplete {(value)}="lot" {(last-selected)}="lotSelected" {list}="value">
+			  		<autocomplete {(value)}="lot" {(last-selected)}="lotSelected" {list}="value">
 			  			<span>
 			  				#<span data-value>{{lotNumber}}</span>
 			  			</span>
@@ -70,7 +70,7 @@
 				  				<i>{{name}}</i>
 				  			</small>
 			  			{{/if}}
-			  		</rss-autocomplete>
+			  		</autocomplete>
 			  	</lot-model>
 		  	</form>
 	  	</div>

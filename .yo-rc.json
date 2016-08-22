@@ -1,6 +1,6 @@
 {
   "generator-donejs": {
     "folder": "public",
-    "name": "rss-job-tracker"
+    "name": "job-tracker"
   }
 }

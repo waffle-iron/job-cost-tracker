@@ -1,8 +1,8 @@
-@parent rss-job-tracker
-@module {can.Component} rss-job-tracker/components/autocomplete <rss-autocomplete>
-@signature `<rss-autocomplete>`
+@parent job-tracker
+@module {can.Component} job-tracker/components/autocomplete <autocomplete>
+@signature `<autocomplete>`
 
 @body
 
-## <rss-autocomplete>
+## <autocomplete>
 

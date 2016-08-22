@@ -1,8 +1,8 @@
 import can from 'can';
-import superMap from 'rss-job-tracker/models/superMap';
+import superMap from 'job-tracker/models/superMap';
 import tag from 'can-connect/can/tag/';
 import 'can/map/define/define';
-import Lot from 'rss-job-tracker/models/lot/';
+import Lot from 'job-tracker/models/lot/';
 
 export const Job = can.Map.extend({
   define: {

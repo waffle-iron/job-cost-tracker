@@ -3,7 +3,7 @@ import { ViewModel } from './job-reports';
 import can from 'can';
 
 // ViewModel unit tests
-QUnit.module('rss-job-tracker/components/job-reports', function(){
+QUnit.module('job-tracker/components/job-reports', function(){
 
   QUnit.test('viewModel is a can.Map', function(assert){
     var vm = new ViewModel();

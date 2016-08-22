@@ -1,4 +1,4 @@
-<can-import from="rss-job-tracker/models/user/" />
+<can-import from="job-tracker/models/user/" />
 
 <user-model get-list="{}" class="list-group">
   <h1>Users</h1>

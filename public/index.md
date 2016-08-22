@@ -1,5 +1,5 @@
-@page rss-job-tracker
+@page job-tracker
 
-# rss-job-tracker
+# job-tracker
 
-This is the documentation for rss-job-tracker
+This is the documentation for job-tracker

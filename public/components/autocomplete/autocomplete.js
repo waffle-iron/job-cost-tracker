@@ -48,7 +48,7 @@ export const ViewModel = Map.extend({
 });
 
 export default Component.extend({
-  tag: 'rss-autocomplete',
+  tag: 'autocomplete',
   viewModel: ViewModel,
   template,
   events: {
